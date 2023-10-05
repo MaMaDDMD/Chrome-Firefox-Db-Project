@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -13,9 +13,9 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 15">
             <Label Content="Enter Your Query Command :" Height="30" Width="165"/>
-            <TextBox x:Name="QueryText" Height="30" Width="300" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+            <TextBox x:Name="QueryText" Height="30" Width="300" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" KeyUp="QueryText_KeyUp"/>
         </StackPanel>
-        <DataGrid x:Name="GridViewer" Grid.Row="1" Margin="15 15"/>
+        <DataGrid x:Name="GridViewer" Grid.Row="1" Margin="15 15" ItemsSource="{Binding ShowingData}"/>
         <ProgressBar x:Name="Processing" Grid.Row="2" Height="30" Width="200" IsIndeterminate="True" Margin="0 15" Visibility="Collapsed"/>
     </Grid>
 </Window>
